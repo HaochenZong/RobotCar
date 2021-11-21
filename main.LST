@@ -1,0 +1,92 @@
+C51 COMPILER V9.01   MAIN                                                                  04/29/2015 09:43:31 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          
+   2          
+   3         
+   4          
+   5               
+   6          
+   7          
+   8          
+   9          
+  10          
+  11         
+  12          
+  13          
+  14          
+  15          
+  16                
+  17           
+  18           
+  19          
+  20          
+  21         #include<AT89X52.H>              
+  22         #include<HJ-4WD_PWM.H>            
+  23              
+  24          
+  25                  void main(void)
+  26          {       
+  27   1      
+  28   1              unsigned char i;
+  29   1          P1=0X00;      
+  30   1      
+  31   1                              TMOD=0X01;
+  32   1                      TH0= 0XFc;                
+  33   1                      TL0= 0X18;
+  34   1                      TR0= 1;
+  35   1                      ET0= 1;
+  36   1                      EA = 1;
+  37   1      
+  38   1      
+  39   1              while(1)        
+  40   1              { 
+  41   2               
+  42   2                               
+  43   2                                
+  44   2                    if(Left_B_led==1&&Right_B_led==1) 
+  45   2      
+  46   2                                run();
+  47   2      
+  48   2                                else
+  49   2                               {                        
+  50   3                                                     if(Left_B_led==0&&Right_B_led==1)            
+  51   3                                       {
+  52   4                              
+  53   4                                       Left_moto_go;                                             
+  54   4                                       Right_moto_Stop;
+  55   4                                       
+C51 COMPILER V9.01   MAIN                                                                  04/29/2015 09:43:31 PAGE 2   
+
+  56   4                                   }
+  57   3                                 
+  58   3                                                                  if(Right_B_led==0&&Left_B_led==1)           
+  59   3                                        {       
+  60   4                      
+  61   4                                    Right_moto_go;                                       
+  62   4                                        Left_moto_Stop;
+  63   4                                        }
+  64   3                              }        
+  65   2               }
+  66   1      }
+*** WARNING C280 IN LINE 28 OF MAIN.C: 'i': unreferenced local variable
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    233    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
